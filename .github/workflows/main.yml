@@ -43,6 +43,7 @@ jobs:
           script: |
             cd real-estate
             git pull origin first
+            cd backend
             sudo systemctl stop apache2
             python manage.py collectstatic --noinput
             sudo systemctl start apache2
