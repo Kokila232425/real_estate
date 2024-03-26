@@ -45,5 +45,9 @@ jobs:
             git pull origin first
             cd backend
             sudo systemctl stop apache2
+            sudo mkdir -p /var/www/real-estate
+            sudo chown -R $USER:www-data /var/www/real-estate
+            sudo chmod -R 755 /var/www/real-estate
+            sudo rsync -av --progress --exclude '.git' . /var/www/real-estate
             python manage.py collectstatic --noinput
             sudo systemctl start apache2
