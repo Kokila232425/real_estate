@@ -30,7 +30,7 @@ jobs:
           cd frontend
           npm update
           npm install
-          npm run build
+          npm run dev
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
