@@ -3,7 +3,10 @@ on:
  push:
    branches:
       -first
+<<<<<<< HEAD
     
+=======
+>>>>>>> fc9ab9a92319a1dbbdb930e8751d9ed32b9b02ce
 jobs: 
   build:
       runs-on: self-hosted
