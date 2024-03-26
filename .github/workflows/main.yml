@@ -3,7 +3,7 @@ name: ec2 deployment
 on:
  push:
    branches:
-      -first
+      -main
 jobs: 
   build:
     runs-on: ubuntu-latest
