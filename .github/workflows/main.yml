@@ -36,8 +36,8 @@ jobs:
             username: ${{ secrets.EC2_USERNAME }}
             key: ${{ secrets.EC2_SSH_KEY }}
             script: |
-              cd Real-Estate
-              git pull origin main
+              cd real-estate
+              git pull origin first
               sudo systemctl stop apache2
               python manage.py collectstatic --noinput
               sudo systemctl start apache2
