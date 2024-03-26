@@ -3,7 +3,7 @@ name: ec2 deployment
 on:
  push:
    branches:
-      -first
+      -main
 jobs: 
   build:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
           
           script: |
             cd real-estate
-            git pull origin first
+            git pull origin main
             sudo systemctl stop apache2
             python manage.py collectstatic --noinput
             sudo systemctl start apache2
