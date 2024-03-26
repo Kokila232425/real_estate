@@ -1,5 +1,4 @@
 name: ec2 deployment
-
 on:
  push:
    branches:
