@@ -37,7 +37,7 @@ jobs:
         env:
           key: ${{ secrets.EC2_SSH_KEY }}
           username: ${{ secrets.EC2_USERNAME }}
-          host: ${{ secrets.EC2_HOST }}
+          host: 52.201.61.207
         with:
           script: |
             cd real-estate
