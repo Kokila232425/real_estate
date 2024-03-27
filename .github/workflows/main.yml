@@ -41,11 +41,4 @@ jobs:
            
         with:
           script: |
-            cd real-estate
-            git pull origin first
-            cd backend
-            sudo systemctl stop apache2
-            sudo mkdir -p /var/www/real-estate
-            sudo rsync -av --progress  . /var/www/real-estate
-            python manage.py collectstatic --noinput
-            sudo systemctl start apache2
+            touch testing.txt
