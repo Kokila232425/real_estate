@@ -1,9 +1,10 @@
 name: ec2 deployment
 
 on:
- push:
-   branches:
-      -main
+  push:
+    branches:
+      - main
+
 jobs: 
   build:
     runs-on: ubuntu-latest
@@ -37,17 +38,13 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           username: ${{ secrets.EC2_USERNAME }}
           host: ${{ secrets.EC2_HOST }}
-          run : echo "${{ secrets.EC2_HOST }}"
-          
-          
+        with:
           script: |
             cd real-estate
             git pull origin first
             cd backend
             sudo systemctl stop apache2
             sudo mkdir -p /var/www/real-estate
-            sudo chown -R $USER:www-data /var/www/real-estate
-            sudo chmod -R 755 /var/www/real-estate
             sudo rsync -av --progress --exclude '.git' . /var/www/real-estate
             python manage.py collectstatic --noinput
             sudo systemctl start apache2
