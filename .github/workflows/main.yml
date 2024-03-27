@@ -45,6 +45,6 @@ jobs:
             cd backend
             sudo systemctl stop apache2
             sudo mkdir -p /var/www/real-estate
-            sudo rsync -av --progress --exclude '.git' . /var/www/real-estate
+            sudo rsync -av --progress  . /var/www/real-estate
             python manage.py collectstatic --noinput
             sudo systemctl start apache2
