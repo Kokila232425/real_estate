@@ -33,7 +33,7 @@ jobs:
           npm run eject
 
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         env:
           key: ${{ secrets.EC2_SSH_KEY }}
           username: ${{ secrets.EC2_USERNAME }}
