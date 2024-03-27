@@ -35,9 +35,9 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.0
         env:
-          key: ${{ secrets.EC2_SSH_KEY }}
-          username: ${{ secrets.EC2_USERNAME }}
-          host: 52.201.61.207
+          key: ${{ first_env.EC2_SSH_KEY }}
+          username: ${{ first_env.EC2_USERNAME }}
+          host: ${{ first_env.EC2_HOST }}
         with:
           script: |
             cd real-estate
