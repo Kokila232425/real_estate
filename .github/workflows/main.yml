@@ -24,14 +24,6 @@ jobs:
           cd backend
           pip install -r requirements.txt
 
-      - name: Collect static files
-        run: |
-          python manage.py collectstatic --noinput
-
-      - name: Compress static files
-        run: |
-          tar -czf staticfiles.tar.gz static
-
       - name: Upload static files to EC2
         run: scp -i ${{ secrets.EC2_SSH_KEY }} -o StrictHostKeyChecking=no staticfiles.tar.gz ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/
 
